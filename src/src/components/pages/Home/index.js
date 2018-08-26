@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from '../../organisms/Header';
 
 import {
   HomeContainer,
@@ -7,7 +8,9 @@ import {
 class Home extends Component {
   render() {
     return (
-      <HomeContainer />
+      <HomeContainer>
+        <Header />
+      </HomeContainer>
     );
   }
 }
