@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { arrayOf, object, func } from 'prop-types';
 import Header from '../../organisms/Header';
+import ProductList from '../../organisms/ProductList';
 import { getProducts } from '../../../services/products';
 import { setProducts } from '../../../actions/products';
 
@@ -17,9 +18,14 @@ class Home extends Component {
   }
 
   render() {
+    const {
+      products,
+    } = this.props;
+
     return (
       <HomeContainer>
         <Header />
+        <ProductList products={products} loading />
       </HomeContainer>
     );
   }
