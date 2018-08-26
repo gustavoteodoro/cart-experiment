@@ -13,6 +13,6 @@
       "array-callback-return": 0,
       "linebreak-style": 0,
       "react/jsx-one-expression-per-line": 0,
-      "import/no-extraneous-dependencies": 0
+      "import/no-extraneous-dependencies": 0,
   }
 }
