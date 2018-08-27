@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from '../../bosons/media';
 import { white, grey } from '../../bosons/colors';
 
 export const ProductContainer = styled.div`
@@ -8,10 +9,21 @@ export const ProductContainer = styled.div`
   border-radius: 8px;
   margin-top: 28px;
   background: ${white};
+
+  ${media.mobile`
+    width: calc(100% - 40px);
+    flex-direction: column;
+    box-sizing: border-box;
+    margin: 28px 20px 0;
+  `}
 `;
 
 export const ProductImage = styled.img`
   width: 40%;
+
+  ${media.mobile`
+    width: 100%;
+  `}
 `;
 
 export const ProductDetails = styled.div`
@@ -21,6 +33,11 @@ export const ProductDetails = styled.div`
   justify-content: space-between;
   box-sizing: border-box;
   padding: 42px 56px;
+
+  ${media.mobile`
+    width: 100%;
+    padding: 25px;
+  `}
 `;
 
 export const ProductInfo = styled.div`
@@ -36,11 +53,18 @@ export const ProductInfoHeader = styled.div`
 
 export const ProductTitle = styled.h2`
   font-size: 38px;
+  font-weight: 400;
   margin: 0;
+  ${media.mobile`
+    font-size: 21px;
+  `}
 `;
 
 export const ProductValue = styled.span`
   font-size: 21px;
+  ${media.mobile`
+    font-size: 16px;
+  `}
 `;
 
 export const ProductAmount = styled.div`
@@ -48,8 +72,15 @@ export const ProductAmount = styled.div`
   color: ${grey};
   text-transform: uppercase;
   margin-top: 20px;
+
+  ${media.mobile`
+    font-size: 12px;
+    margin-top: 10px;
+  `}
 `;
 
 export const ProductButton = styled.div`
-
+  ${media.mobile`
+    margin-top: 20px;
+  `}
 `;
