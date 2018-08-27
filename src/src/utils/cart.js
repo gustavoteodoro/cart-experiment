@@ -4,7 +4,7 @@ export function sumCartItemsValue(cart) {
     total += (item.value * item.amount);
     return false;
   });
-  return total;
+  return Number((total).toFixed(2));
 }
 
 export function sumCartItemsAmount(cart) {

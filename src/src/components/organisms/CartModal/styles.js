@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
-import { white, softGrey, almostGrey } from '../../bosons/colors';
+import {
+  white, softGrey, softDarkGrey, almostGrey, heavyDarkGrey,
+} from '../../bosons/colors';
 
 
 export const CartModalContent = styled.aside`
@@ -50,7 +52,7 @@ export const CartModalContainer = styled.div`
 
     ${CartModalContent} {
       transform: translate(-50%,-50%);
-      transition: transform .2s .1s ease;
+      transition: transform .6s .1s cubic-bezier(.26,1.34,.61,.98);
     }
 
     ${CartModalFullClose} {
@@ -75,6 +77,14 @@ export const CartModalClose = styled.div`
   cursor: pointer;
 `;
 
+export const CartModalItemsContainer = styled.div`
+
+`;
+
+export const CartModalItems = styled.div`
+
+`;
+
 export const CartModalEmpty = styled.div`
   display: flex;
   flex-direction: column;
@@ -93,4 +103,35 @@ export const CartModalEmptyText = styled.p`
   color: ${almostGrey};
   max-width: 300px;
   text-align: center;
+`;
+
+export const CartModalValues = styled.div`
+  border-top: 1px solid ${softGrey};
+  margin-top: 30px;
+  padding-top: 10px;
+`;
+
+export const CartModalValue = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+`;
+
+export const CartModalValueLabel = styled.span`
+  font-size: 14;
+  color: ${softDarkGrey};
+`;
+
+export const CartModalValueNumber = styled.span`
+  font-size: 14;
+  color: ${heavyDarkGrey};
+`;
+
+export const CartModalValuesButton = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 40px;
 `;

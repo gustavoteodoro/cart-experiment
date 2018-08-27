@@ -5,8 +5,8 @@ import Header from '../../organisms/Header';
 import ProductList from '../../organisms/ProductList';
 import CartModal from '../../organisms/CartModal';
 import { getProducts } from '../../../services/products';
-import { setProducts, removeItem } from '../../../actions/products';
-import { addProduct } from '../../../actions/cart';
+import { setProducts, removeItem, addItem } from '../../../actions/products';
+import { addProduct, removeProduct, clearCart } from '../../../actions/cart';
 
 import {
   HomeContainer,
@@ -32,15 +32,21 @@ class Home extends Component {
       });
   }
 
-  handleAddProduct(id, value) {
+  handleAddProduct(id, value, title) {
     this.props.removeItem(id);
-    this.props.addProduct(id, value);
+    this.props.addProduct(id, value, title);
+  }
+
+  handleRemoveProduct(id, value, title, amount) {
+    this.props.addItem(id, amount);
+    this.props.removeProduct(id, value, title, amount);
   }
 
   render() {
     const {
       products,
       cart,
+      clearCart,
     } = this.props;
 
     const {
@@ -54,12 +60,16 @@ class Home extends Component {
         <ProductList
           products={products}
           loading={loading}
-          onAddProduct={(id, value) => this.handleAddProduct(id, value)}
+          onAddProduct={(id, value, title) => this.handleAddProduct(id, value, title)}
         />
         <CartModal
           opened={cartOpened}
           onCloseCart={() => this.setState({ cartOpened: false })}
           cart={cart}
+          products={products}
+          onAddProduct={(id, value, title) => this.handleAddProduct(id, value, title)}
+          onCheckout={() => clearCart()}
+          onRemoveProduct={(id, value, title, amount) => this.handleRemoveProduct(id, value, title, amount)}
         />
       </HomeContainer>
     );
@@ -91,11 +101,20 @@ const mapDispatchToProps = dispatch => ({
   setProducts(products) {
     dispatch(setProducts(products));
   },
+  addItem(productId, amount) {
+    dispatch(addItem(productId, amount));
+  },
   removeItem(productId) {
     dispatch(removeItem(productId));
   },
-  addProduct(productId, productValue) {
-    dispatch(addProduct(productId, productValue));
+  addProduct(productId, productValue, productTitle) {
+    dispatch(addProduct(productId, productValue, productTitle));
+  },
+  removeProduct(productId, productValue, productTitle, amountToRemove) {
+    dispatch(removeProduct(productId, productValue, productTitle, amountToRemove));
+  },
+  clearCart() {
+    dispatch(clearCart());
   },
 });
 

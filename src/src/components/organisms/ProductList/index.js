@@ -24,7 +24,7 @@ class ProductList extends Component {
       <ProductListContainer>
         {products.map(product => (
           <Product
-            onAddProduct={() => onAddProduct(product.id, product.price.value)}
+            onAddProduct={() => onAddProduct(product.id, product.price.value, product.productTitle)}
             key={product.id}
             product={product}
           />

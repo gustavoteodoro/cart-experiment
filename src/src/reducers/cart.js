@@ -1,4 +1,4 @@
-import { ADD_PRODUCT, CLEAR_CART } from '../actions/cart';
+import { ADD_PRODUCT, REMOVE_PRODUCT, CLEAR_CART } from '../actions/cart';
 
 const initialState = [];
 export default function reducer(state = initialState, action) {
@@ -13,8 +13,18 @@ export default function reducer(state = initialState, action) {
       return [...state, {
         id: action.productId,
         value: action.productValue,
+        title: action.productTitle,
         amount: 1,
       }];
+    }
+    case REMOVE_PRODUCT: {
+      const itemRemoved = state.find(item => action.productId === item.id);
+      if (itemRemoved.amount > 1) {
+        const currentAmount = itemRemoved.amount;
+        Object.assign(itemRemoved, { amount: currentAmount - action.amountToRemove });
+        return [...state];
+      }
+      return state.filter(f => f.id !== action.productId);
     }
     case CLEAR_CART: {
       return initialState;
