@@ -13,16 +13,19 @@ import {
 
 class ProductList extends Component {
   render() {
+    const products = [1, 2, 3];
     return (
       <SkeletonContainer>
-        <SkeletonProduct>
-          <SkeletonProductImage />
-          <SkeletonProductDetails>
-            <SkeletonProductTitle />
-            <SkeletonProductSubtitle />
-            <SkeletonProductButton />
-          </SkeletonProductDetails>
-        </SkeletonProduct>
+        {products.map(product => (
+          <SkeletonProduct key={product}>
+            <SkeletonProductImage />
+            <SkeletonProductDetails>
+              <SkeletonProductTitle />
+              <SkeletonProductSubtitle />
+              <SkeletonProductButton />
+            </SkeletonProductDetails>
+          </SkeletonProduct>
+        ))}
       </SkeletonContainer>
     );
   }

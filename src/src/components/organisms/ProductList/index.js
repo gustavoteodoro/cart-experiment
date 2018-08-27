@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { arrayOf, object, bool } from 'prop-types';
+import Product from '../../molecules/Product';
 import Skeleton from './skeleton';
 
 import {
@@ -18,7 +19,12 @@ class ProductList extends Component {
     }
     return (
       <ProductListContainer>
-        {products.map()}
+        {products.map(product => (
+          <Product
+            key={product.id}
+            product={product}
+          />
+        ))}
       </ProductListContainer>
     );
   }

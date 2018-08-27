@@ -1,15 +1,17 @@
 import styled from 'styled-components';
 import { skeletonAnimation } from '../../../bosons/skeleton';
+import { white } from '../../../bosons/colors';
 
 export const SkeletonContainer = styled.main`
-  margin-top: 28px;
 `;
 
 export const SkeletonProduct = styled.div`
+  margin-top: 28px;
   display: flex;
   width: 100%;
   overflow: hidden;
   border-radius: 8px;
+  background: ${white};
 `;
 
 export const SkeletonProductImage = styled.div`

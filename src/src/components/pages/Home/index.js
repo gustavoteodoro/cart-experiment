@@ -11,10 +11,22 @@ import {
 } from './styles';
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loading: false,
+    };
+  }
+
   componentWillMount() {
+    this.setState({ loading: true });
     getProducts()
       .then(res => res.json())
-      .then(result => this.props.setProducts(result));
+      .then((result) => {
+        this.props.setProducts(result);
+        setTimeout(() => this.setState({ loading: false }), 0);
+      });
   }
 
   render() {
@@ -22,10 +34,18 @@ class Home extends Component {
       products,
     } = this.props;
 
+    const {
+      loading,
+    } = this.state;
+
     return (
       <HomeContainer>
         <Header />
-        <ProductList products={products} loading />
+        <ProductList
+          products={products}
+          loading={loading}
+
+        />
       </HomeContainer>
     );
   }
