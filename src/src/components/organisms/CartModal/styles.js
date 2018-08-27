@@ -151,6 +151,7 @@ export const CartModalValuesButton = styled.div`
   flex-direction: row;
   justify-content: flex-end;
   margin-top: 40px;
+  margin-bottom: 40px;
   
   ${media.mobile`
     display: block;

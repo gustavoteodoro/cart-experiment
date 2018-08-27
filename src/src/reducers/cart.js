@@ -19,9 +19,9 @@ export default function reducer(state = initialState, action) {
     }
     case REMOVE_PRODUCT: {
       const itemRemoved = state.find(item => action.productId === item.id);
-      if (itemRemoved.amount > 1) {
+      if (itemRemoved.amount === 1) {
         const currentAmount = itemRemoved.amount;
-        Object.assign(itemRemoved, { amount: currentAmount - action.amountToRemove });
+        Object.assign(itemRemoved, { amount: currentAmount - 1 });
         return [...state];
       }
       return state.filter(f => f.id !== action.productId);

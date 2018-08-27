@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { func } from 'prop-types';
+import { func, arrayOf, object } from 'prop-types';
 import CartLink from '../../atoms/CartLink';
 import { sumCartTotal, sumCartItemsAmount } from '../../../utils/cart';
 
@@ -33,6 +33,11 @@ class Header extends Component {
 
 Header.propTypes = {
   onOpenCart: func.isRequired,
+  cart: arrayOf(object),
+};
+
+Header.defaultProps = {
+  cart: null,
 };
 
 export default Header;

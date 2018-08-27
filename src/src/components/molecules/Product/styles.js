@@ -16,6 +16,11 @@ export const ProductContainer = styled.div`
     box-sizing: border-box;
     margin: 28px 20px 0;
   `}
+
+  ${media.tablet`
+    width: calc(100% - 100px);
+    margin: 28px 50px 0;
+  `}
 `;
 
 export const ProductImage = styled.img`
@@ -38,6 +43,10 @@ export const ProductDetails = styled.div`
     width: 100%;
     padding: 25px;
   `}
+
+  ${media.tablet`
+    padding: 30px 35px;
+  `}
 `;
 
 export const ProductInfo = styled.div`
@@ -58,6 +67,9 @@ export const ProductTitle = styled.h2`
   ${media.mobile`
     font-size: 21px;
   `}
+  ${media.tablet`
+    font-size: 28px;
+  `}
 `;
 
 export const ProductValue = styled.span`
@@ -76,6 +88,9 @@ export const ProductAmount = styled.div`
   ${media.mobile`
     font-size: 12px;
     margin-top: 10px;
+  `}
+  ${media.tablet`
+    font-size: 12px;
   `}
 `;
 

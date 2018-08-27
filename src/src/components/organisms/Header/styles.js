@@ -11,6 +11,11 @@ export const HeaderContainer = styled.header`
   ${media.mobile`
     flex-direction: column;
   `}
+
+  ${media.tablet`
+    font-size: 38px;
+    margin: 0 50px;
+  `}
 `;
 
 export const HeaderTitle = styled.h1`
@@ -23,5 +28,9 @@ export const HeaderTitle = styled.h1`
   ${media.mobile`
     font-size: 28px;
     margin: 30px 20px 10px;
+  `}
+
+  ${media.tablet`
+    font-size: 38px;
   `}
 `;
