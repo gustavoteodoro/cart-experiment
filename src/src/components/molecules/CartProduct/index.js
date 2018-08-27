@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { shape, string, number } from 'prop-types';
+import {
+  shape, string, number, func, bool,
+} from 'prop-types';
 import ButtonSecondary from '../../atoms/ButtonSecondary';
 
 import {
@@ -62,6 +64,14 @@ CartProduct.propTypes = {
     productTitle: string,
     inventory: number,
   }).isRequired,
+  onRemoveProduct: func.isRequired,
+  onRemoveItem: func.isRequired,
+  onAddItem: func.isRequired,
+  plusDisabled: bool,
+};
+
+CartProduct.defaultProps = {
+  plusDisabled: false,
 };
 
 export default CartProduct;

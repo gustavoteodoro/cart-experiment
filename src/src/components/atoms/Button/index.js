@@ -21,10 +21,11 @@ class Button extends Component {
     const {
       label,
       disabled,
+      full,
     } = this.props;
 
     return (
-      <ButtonContainer onClick={() => this.handleClick()} disabled={disabled}>
+      <ButtonContainer onClick={() => this.handleClick()} disabled={disabled} full={full}>
         <ButtonLabel>
           {label}
         </ButtonLabel>
@@ -37,11 +38,13 @@ Button.propTypes = {
   label: string.isRequired,
   disabled: bool,
   onClick: func,
+  full: bool,
 };
 
 Button.defaultProps = {
   disabled: false,
   onClick: null,
+  full: false,
 };
 
 export default Button;

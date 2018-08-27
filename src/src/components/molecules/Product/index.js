@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { shape, string, number } from 'prop-types';
+import {
+  shape, string, number, func,
+} from 'prop-types';
 import Button from '../../atoms/Button';
 
 import {
@@ -52,6 +54,7 @@ Product.propTypes = {
     productTitle: string,
     inventory: number,
   }).isRequired,
+  onAddProduct: func.isRequired,
 };
 
 export default Product;

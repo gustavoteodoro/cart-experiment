@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { media } from '../../bosons/media';
 import {
   white, softGrey, softDarkGrey, almostGrey, heavyDarkGrey,
 } from '../../bosons/colors';
@@ -21,6 +22,13 @@ export const CartModalContent = styled.aside`
   transition: transform .2s 0s ease;
   overflow: auto;
   z-index: 20;
+
+  ${media.mobile`
+    max-height: auto;
+    height: 100%;
+    border-radius: 0;
+    padding: 15px;
+  `}
 `;
 
 export const CartModalFullClose = styled.div`
@@ -68,6 +76,10 @@ export const CartModalTitle = styled.h1`
   margin: 0;
   padding: 25px 0 ;
   border-bottom: 1px solid ${softGrey};
+
+  ${media.mobile`
+    font-size: 28px;
+  `}
 `;
 
 export const CartModalClose = styled.div`
@@ -75,6 +87,11 @@ export const CartModalClose = styled.div`
   top: 30px;
   right: 28px;
   cursor: pointer;
+  ${media.mobile`
+    top: 15px;
+    right: 15px;
+    transform: scale(0.8);
+  `}
 `;
 
 export const CartModalItemsContainer = styled.div`
@@ -134,4 +151,10 @@ export const CartModalValuesButton = styled.div`
   flex-direction: row;
   justify-content: flex-end;
   margin-top: 40px;
+  
+  ${media.mobile`
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+  `}
 `;

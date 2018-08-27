@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { bool, func } from 'prop-types';
+import {
+  bool, func, arrayOf, object,
+} from 'prop-types';
 import Icon from '../../atoms/Icon';
 import CartProduct from '../../molecules/CartProduct';
 import Button from '../../atoms/Button';
@@ -76,7 +78,7 @@ class CartModal extends Component {
                 </CartModalValue>
               </CartModalValues>
               <CartModalValuesButton>
-                <Button label="Checkout" onClick={() => onCheckout()} />
+                <Button label="Checkout" onClick={() => onCheckout()} full />
               </CartModalValuesButton>
             </CartModalItemsContainer>
           )}
@@ -99,11 +101,21 @@ class CartModal extends Component {
 CartModal.propTypes = {
   opened: bool,
   onCloseCart: func,
+  products: arrayOf(object),
+  cart: arrayOf(object),
+  onAddProduct: func,
+  onCheckout: func,
+  onRemoveProduct: func,
 };
 
 CartModal.defaultProps = {
   opened: false,
   onCloseCart: null,
+  products: null,
+  cart: null,
+  onAddProduct: null,
+  onCheckout: null,
+  onRemoveProduct: null,
 };
 
 export default CartModal;

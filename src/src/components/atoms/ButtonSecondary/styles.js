@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
+import { media } from '../../bosons/media';
 import {
-  white, softBlue, blue, darkblue, ligthGrey, darkGrey,
+  white, blue, darkblue, ligthGrey, darkGrey,
 } from '../../bosons/colors';
 
 export const ButtonSecondaryContainer = styled.button`
@@ -40,6 +41,10 @@ export const ButtonSecondaryContainer = styled.button`
   ${props => (props.side === 'left') && css`
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+  `}
+
+  ${media.mobile`
+    width: 33%;
   `}
 `;
 
