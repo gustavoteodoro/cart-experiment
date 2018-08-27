@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { arrayOf, object, bool } from 'prop-types';
+import {
+  arrayOf, object, bool, func,
+} from 'prop-types';
 import Product from '../../molecules/Product';
 import Skeleton from './skeleton';
 
@@ -13,6 +15,7 @@ class ProductList extends Component {
     const {
       products,
       loading,
+      onAddProduct,
     } = this.props;
     if (loading) {
       return (<Skeleton />);
@@ -21,6 +24,7 @@ class ProductList extends Component {
       <ProductListContainer>
         {products.map(product => (
           <Product
+            onAddProduct={() => onAddProduct(product.id, product.price.value)}
             key={product.id}
             product={product}
           />
@@ -33,11 +37,13 @@ class ProductList extends Component {
 ProductList.propTypes = {
   products: arrayOf(object),
   loading: bool,
+  onAddProduct: func,
 };
 
 ProductList.defaultProps = {
   products: [{}],
   loading: false,
+  onAddProduct: null,
 };
 
 export default ProductList;

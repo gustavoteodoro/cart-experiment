@@ -37,6 +37,7 @@ class Product extends Component {
           <ProductButton>
             <Button
               label="ADD TO CART"
+              onClick={() => this.props.onAddProduct()}
               disabled={(inventory === 0)}
             />
           </ProductButton>

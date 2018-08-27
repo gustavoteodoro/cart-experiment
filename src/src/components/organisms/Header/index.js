@@ -28,5 +28,4 @@ Header.propTypes = {
   onOpenCart: func.isRequired,
 };
 
-
 export default Header;

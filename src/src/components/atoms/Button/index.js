@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
-import { string, bool } from 'prop-types';
+import { string, bool, func } from 'prop-types';
 
 import {
   ButtonContainer, ButtonLabel,
 } from './styles';
 
 class Button extends Component {
+  handleClick() {
+    const {
+      onClick,
+      disabled,
+    } = this.props;
+
+    if (!disabled) {
+      onClick();
+    }
+  }
+
   render() {
     const {
       label,
@@ -13,7 +24,7 @@ class Button extends Component {
     } = this.props;
 
     return (
-      <ButtonContainer disabled={disabled}>
+      <ButtonContainer onClick={() => this.handleClick()} disabled={disabled}>
         <ButtonLabel>
           {label}
         </ButtonLabel>
@@ -25,10 +36,12 @@ class Button extends Component {
 Button.propTypes = {
   label: string.isRequired,
   disabled: bool,
+  onClick: func,
 };
 
 Button.defaultProps = {
   disabled: false,
+  onClick: null,
 };
 
 export default Button;
