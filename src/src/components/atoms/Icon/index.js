@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { string, number } from 'prop-types';
 import iconPaths from './selection.json';
-import { black } from '../../bosons/colors';
 
 function getPath(iconName) {
   const icon = iconPaths.icons.find(i => i.properties.name === iconName);
