@@ -10,8 +10,8 @@ import { empty } from './data.json';
 class CartLink extends Component {
   render() {
     return (
-      <CartLinkContainer>
-        <Icon icon="cart" size={17} color="black" />
+      <CartLinkContainer {...this.props}>
+        <Icon icon="cart" size={17} />
         <CartLinkLabel>
           {empty}
         </CartLinkLabel>

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { arrayOf, object, func } from 'prop-types';
 import Header from '../../organisms/Header';
 import ProductList from '../../organisms/ProductList';
+import CartModal from '../../organisms/CartModal';
 import { getProducts } from '../../../services/products';
 import { setProducts } from '../../../actions/products';
 
@@ -15,6 +16,7 @@ class Home extends Component {
     super(props);
 
     this.state = {
+      cartOpened: false,
       loading: false,
     };
   }
@@ -35,16 +37,21 @@ class Home extends Component {
     } = this.props;
 
     const {
+      cartOpened,
       loading,
     } = this.state;
 
     return (
       <HomeContainer>
-        <Header />
+        <Header onOpenCart={() => this.setState({ cartOpened: true })} />
         <ProductList
           products={products}
           loading={loading}
 
+        />
+        <CartModal
+          opened={cartOpened}
+          onCloseCart={() => this.setState({ cartOpened: false })}
         />
       </HomeContainer>
     );

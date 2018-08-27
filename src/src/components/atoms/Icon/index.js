@@ -22,7 +22,7 @@ class Icon extends Component {
     } = this.props;
     return (
       <svg width={size} height={size} viewBox="0 0 1024 1024">
-        <path style={{ fill: color }} d={getPath(icon)} />
+        <path style={{ fill: color, transition: 'fill .2s ease' }} d={getPath(icon)} />
       </svg>
     );
   }
@@ -36,7 +36,7 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
   size: 16,
-  color: black,
+  color: 'currentColor',
 };
 
 export default Icon;
