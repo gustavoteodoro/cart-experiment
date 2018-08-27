@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
-import { white, softBlue, blue } from '../../bosons/colors';
+import {
+  white, softBlue, blue, darkblue,
+} from '../../bosons/colors';
 
 export const ButtonContainer = styled.button`
   display: block;
@@ -14,13 +16,18 @@ export const ButtonContainer = styled.button`
     background-color: ${blue};
   }
 
+  &:active{
+    background-color: ${darkblue};
+  }
+
   ${props => props.disabled && css`
     opacity: .3;
     cursor: auto;
-    &:hover{
+    &:hover, &:active{
       background-color: ${softBlue};
     }
   `}
+
 `;
 
 export const ButtonLabel = styled.span`
