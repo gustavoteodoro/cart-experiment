@@ -17,7 +17,7 @@ class ProductList extends Component {
       loading,
       onAddProduct,
     } = this.props;
-    if (loading) {
+    if (!loading) {
       return (<Skeleton />);
     }
     return (

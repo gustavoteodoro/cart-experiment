@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from '../../../bosons/media';
 import { skeletonAnimation } from '../../../bosons/skeleton';
 import { white } from '../../../bosons/colors';
 
@@ -12,18 +13,31 @@ export const SkeletonProduct = styled.div`
   overflow: hidden;
   border-radius: 8px;
   background: ${white};
+  ${media.mobile`
+    width: calc(100% - 40px);
+    flex-direction: column;
+    margin: 28px 20px 0;
+  `}
 `;
 
 export const SkeletonProductImage = styled.div`
   ${skeletonAnimation};
   width: 40%;
   height: 282px;
+  ${media.mobile`
+    width: 100%;
+    height: 200px;
+  `}
 `;
 
 export const SkeletonProductDetails = styled.div`
   width: 60%;
   box-sizing: border-box;
   padding: 42px 56px;
+  ${media.mobile`
+    width: 100%;
+    padding: 20px;
+  `}
 `;
 
 
