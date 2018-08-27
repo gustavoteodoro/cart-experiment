@@ -27,5 +27,5 @@ export function sumCartTaxes(cart) {
 export function sumCartTotal(cart) {
   const totalValue = sumCartItemsValue(cart);
   const taxes = sumCartTaxes(cart);
-  return totalValue + taxes;
+  return Number((totalValue + taxes).toFixed(2));
 }
