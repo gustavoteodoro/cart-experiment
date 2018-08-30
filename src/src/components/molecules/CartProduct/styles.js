@@ -12,9 +12,11 @@ export const ProductContainer = styled.div`
 
 export const ProductImage = styled.img`
   width: 30%;
+  height: 100%
 
   ${media.mobile`
     width: 107px;
+    height: auto;
   `}
 `;
 

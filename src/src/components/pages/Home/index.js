@@ -6,7 +6,7 @@ import ProductList from '../../organisms/ProductList';
 import CartModal from '../../organisms/CartModal';
 import { getProducts } from '../../../services/products';
 import { setProducts, removeItem, addItem } from '../../../actions/products';
-import { addProduct, removeProduct, clearCart } from '../../../actions/cart';
+import { addProduct, removeProduct, cleanCart } from '../../../actions/cart';
 
 import {
   HomeContainer,
@@ -28,7 +28,8 @@ class Home extends Component {
       .then(res => res.json())
       .then((result) => {
         this.props.setProducts(result);
-        setTimeout(() => this.setState({ loading: false }), 0);
+        // just adding delay to show Skeleton loading
+        setTimeout(() => this.setState({ loading: false }), 1000);
       });
   }
 
@@ -46,7 +47,6 @@ class Home extends Component {
     const {
       products,
       cart,
-      clearCart,
     } = this.props;
 
     const {
@@ -68,7 +68,7 @@ class Home extends Component {
           cart={cart}
           products={products}
           onAddProduct={(id, value, title) => this.handleAddProduct(id, value, title)}
-          onCheckout={() => clearCart()}
+          onCheckout={() => this.props.cleanCart()}
           onRemoveProduct={(id, value, title, amount) => this.handleRemoveProduct(id, value, title, amount)}
         />
       </HomeContainer>
@@ -79,17 +79,17 @@ class Home extends Component {
 Home.propTypes = {
   products: arrayOf(object),
   cart: arrayOf(object),
-  setProducts: func,
-  removeItem: func,
-  addProduct: func,
+  setProducts: func.isRequired,
+  addItem: func.isRequired,
+  removeItem: func.isRequired,
+  addProduct: func.isRequired,
+  removeProduct: func.isRequired,
+  cleanCart: func.isRequired,
 };
 
 Home.defaultProps = {
   products: null,
   cart: null,
-  setProducts: null,
-  removeItem: null,
-  addProduct: null,
 };
 
 const mapStateToProps = state => ({
@@ -113,8 +113,8 @@ const mapDispatchToProps = dispatch => ({
   removeProduct(productId, productValue, productTitle, amountToRemove) {
     dispatch(removeProduct(productId, productValue, productTitle, amountToRemove));
   },
-  clearCart() {
-    dispatch(clearCart());
+  cleanCart() {
+    dispatch(cleanCart());
   },
 });
 

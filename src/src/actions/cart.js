@@ -14,6 +14,6 @@ export function removeProduct(productId, productValue, productTitle, amountToRem
   };
 }
 
-export function clearCart() {
+export function cleanCart() {
   return { type: CLEAR_CART };
 }
